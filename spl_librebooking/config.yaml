@@ -1,0 +1,68 @@
+name: SPL Equipment Booking
+version: "0.1.4"
+slug: spl_librebooking
+description: Equipment booking with approvals and a public calendar (LibreBooking)
+url: https://librebooking.readthedocs.io
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+services:
+  - mysql:need
+map:
+  - type: addon_config
+    read_only: false
+ports:
+  8080/tcp: 8090
+ports_description:
+  8080/tcp: Booking site (LibreBooking)
+webui: "http://[HOST]:[PORT:8080]/Web/"
+backup: hot
+options:
+  public_url: "http://homeassistant.local:8090"
+  app_title: "SPL Equipment Booking"
+  company_name: "Sydney Propulsion Lab"
+  company_url: ""
+  timezone: "Australia/Sydney"
+  database_name: "librebooking"
+  allow_self_registration: true
+  allowed_email_domains: "sydney.edu.au,uni.sydney.edu.au"
+  public_schedule: true
+  public_booking_details: false
+  hide_user_details: true
+  public_days: 60
+  notify_admins_of_approvals: true
+  smtp_port: 587
+  smtp_security: "tls"
+  embed_allowed_from: []
+  log_level: "none"
+  extra_settings: []
+schema:
+  public_url: url
+  admin_email: email?
+  app_title: str
+  company_name: str?
+  company_url: str?
+  timezone: str
+  database_name: match(^[A-Za-z0-9_]+$)
+  database_username: str?
+  database_password: password?
+  allow_self_registration: bool
+  allowed_email_domains: str?
+  public_schedule: bool
+  public_booking_details: bool
+  hide_user_details: bool
+  public_days: int(1,730)
+  notify_admins_of_approvals: bool
+  smtp_host: str?
+  smtp_port: port
+  smtp_security: list(tls|ssl|none)
+  smtp_username: str?
+  smtp_password: password?
+  email_from: email?
+  embed_allowed_from:
+    - url
+  log_level: list(none|error|debug)
+  extra_settings:
+    - str

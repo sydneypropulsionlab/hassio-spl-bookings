@@ -1,0 +1,167 @@
+/* SPL theme for LibreBooking 7.2
+   Paste into Settings (gear) -> Look and Feel -> Custom CSS, save, then hard-refresh (Ctrl+Shift+R).
+   Colours from the SPL logo: blue #0064DE, black, white. */
+
+/* ---- Brand variables ----
+   LibreBooking sets its theme on <body data-bs-theme="default">, so the
+   overrides must target body[data-bs-theme] to outrank it. */
+:root,
+body[data-bs-theme],
+body[data-bs-theme="default"] {
+  --spl-blue: #0064de;
+  --spl-blue-dark: #004cab;
+  --spl-blue-light: #e8f0fc;
+  --spl-black: #111418;
+
+  /* LibreBooking theme variables */
+  --primary: #0064de;
+  --primary-hover: #004cab;
+  --primary-disabled: #8fb4ec;
+
+  /* Bootstrap variables */
+  --bs-primary: #0064de;
+  --bs-primary-rgb: 0, 100, 222;
+  --bs-link-color: #0064de;
+  --bs-link-color-rgb: 0, 100, 222;
+  --bs-link-hover-color: #004cab;
+  --bs-link-hover-color-rgb: 0, 76, 171;
+  --bs-focus-ring-color: rgba(0, 100, 222, 0.25);
+
+  /* Schedule slot colours */
+  --reserved: #3b86e8;            /* approved bookings */
+  --reservedMine: #0064de;        /* your own bookings */
+  --reservedPending: #ffe6a8;     /* awaiting approval: amber = not confirmed */
+  --hiliteReservation: #00c2ff;   /* hover */
+  --label-text-on-light: #111418;
+}
+
+/* ---- Page ---- */
+body {
+  background-color: #f4f6f9;
+}
+
+/* ---- Header ---- */
+img.logo {
+  max-height: 64px;
+}
+
+.navbar {
+  border-bottom: 3px solid var(--spl-blue);
+}
+
+/* Organisation / site title beside the logo */
+.navbar-brand + div h5 a.link-primary {
+  color: var(--spl-black) !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Top menu links (they carry .link-primary, which LibreBooking forces to teal) */
+.navbar .nav-link.link-primary {
+  color: var(--spl-black) !important;
+}
+.navbar .nav-link.link-primary:hover,
+.navbar .nav-link.link-primary:focus,
+.navbar .nav-link.link-primary.show {
+  color: var(--spl-blue) !important;
+}
+
+/* ---- Links ---- */
+.link-primary,
+a.link-primary {
+  color: var(--spl-blue) !important;
+  text-decoration-color: rgba(0, 100, 222, 0.4) !important;
+}
+.link-primary:hover {
+  color: var(--spl-blue-dark) !important;
+}
+
+/* ---- Buttons ---- */
+.btn-primary {
+  --bs-btn-bg: var(--spl-blue);
+  --bs-btn-border-color: var(--spl-blue);
+  --bs-btn-hover-bg: var(--spl-blue-dark);
+  --bs-btn-hover-border-color: var(--spl-blue-dark);
+  --bs-btn-active-bg: var(--spl-blue-dark);
+  --bs-btn-active-border-color: var(--spl-blue-dark);
+  --bs-btn-disabled-bg: #8fb4ec;
+  --bs-btn-disabled-border-color: #8fb4ec;
+  font-weight: 600;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--spl-blue);
+  --bs-btn-border-color: var(--spl-blue);
+  --bs-btn-hover-bg: var(--spl-blue);
+  --bs-btn-hover-border-color: var(--spl-blue);
+  --bs-btn-active-bg: var(--spl-blue-dark);
+}
+
+/* ---- Anything using Bootstrap's "primary" background ---- */
+.bg-primary,
+.badge.bg-primary,
+.text-bg-primary,
+#button-up.bg-primary,
+.toast.bg-primary {
+  background-color: var(--spl-blue) !important;
+  color: #fff !important;
+}
+
+/* ---- Dashboard / admin section headers ---- */
+.accordion-button.link-primary {
+  color: var(--spl-blue) !important;
+}
+.accordion-button:not(.collapsed) {
+  background-color: var(--spl-blue-light);
+  box-shadow: inset 0 -1px 0 rgba(0, 100, 222, 0.15);
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 100, 222, 0.2);
+}
+
+/* Resource name tags (Nano 17, Nano 25...) */
+.resourceName {
+  background-color: var(--spl-blue) !important;
+  color: #fff !important;
+}
+.resourceName a,
+.resourceName i {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+/* "Today / Tomorrow / Next week" bands on the dashboard */
+.timespan.bg-warning {
+  background-color: var(--spl-blue-light) !important;
+  color: var(--spl-black);
+}
+
+/* ---- Forms ---- */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--spl-blue);
+  box-shadow: 0 0 0 0.2rem rgba(0, 100, 222, 0.2);
+}
+.form-check-input:checked {
+  background-color: var(--spl-blue);
+  border-color: var(--spl-blue);
+}
+
+/* ---- Dropdowns ---- */
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--spl-blue);
+}
+.dropdown-item:hover,
+.dropdown-item:focus,
+.dropdown-item.active {
+  background-color: var(--spl-blue);
+  color: #fff;
+}
+
+/* ---- Pagination (admin tables) ---- */
+.pagination {
+  --bs-pagination-color: var(--spl-blue);
+  --bs-pagination-active-bg: var(--spl-blue);
+  --bs-pagination-active-border-color: var(--spl-blue);
+}

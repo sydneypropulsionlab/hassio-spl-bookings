@@ -1,0 +1,85 @@
+configuration:
+  public_url:
+    name: Public address
+    description: >-
+      The address people use to reach the booking site, without /Web, e.g.
+      https://booking.sydneypropulsionlab.org or http://homeassistant.local:8090.
+      Used in emails, calendar links and the wiki embed.
+  admin_email:
+    name: Administrator email
+    description: >-
+      Whoever registers with this email address is the booking system administrator.
+      Register with it first.
+  app_title:
+    name: Site title
+  company_name:
+    name: Organisation name
+  company_url:
+    name: Organisation website
+  timezone:
+    name: Timezone
+    description: e.g. Australia/Sydney
+  database_name:
+    name: Database name
+    description: >-
+      The database created in the MariaDB add-on (letters, digits and _). Don't change it
+      after the first start, or the add-on will start a new, empty system.
+  database_username:
+    name: Database login (optional)
+    description: >-
+      A login created in the MariaDB add-on (Logins), with rights on the database above
+      (Databases and Rights). Leave empty to let this add-on create its own login.
+  database_password:
+    name: Database password
+    description: The password of that login.
+  allow_self_registration:
+    name: Allow people to register
+    description: If off, only the administrator can add users.
+  allowed_email_domains:
+    name: Allowed email domains
+    description: >-
+      Comma-separated. Only these addresses can register, e.g.
+      sydney.edu.au,uni.sydney.edu.au. Leave empty to allow any.
+  public_schedule:
+    name: Public schedule
+    description: Let anyone see the booking schedule without logging in (needed for the wiki embed).
+  public_booking_details:
+    name: Show booking details publicly
+    description: If off, the public sees booked times only, not titles or details.
+  hide_user_details:
+    name: Hide who booked
+    description: Hide user names and contact details from other users.
+  public_days:
+    name: Days shown publicly
+    description: How many days ahead the public schedule and calendar feeds show.
+  notify_admins_of_approvals:
+    name: Email approvers
+    description: Email the administrators when a booking is waiting for approval (needs email set up).
+  smtp_host:
+    name: SMTP server
+    description: Leave empty to turn email off.
+  smtp_port:
+    name: SMTP port
+  smtp_security:
+    name: SMTP security
+    description: tls (STARTTLS, usually port 587), ssl (usually port 465) or none.
+  smtp_username:
+    name: SMTP username
+  smtp_password:
+    name: SMTP password
+  email_from:
+    name: Send email from
+    description: Defaults to the administrator email.
+  embed_allowed_from:
+    name: Sites allowed to embed the booking pages
+    description: >-
+      e.g. https://wiki.sydneypropulsionlab.org. When set, only these sites (and the booking
+      site itself) can show the pages in an iframe. Leave empty to apply no restriction.
+  log_level:
+    name: Log level
+  extra_settings:
+    name: Extra LibreBooking settings
+    description: >-
+      Advanced. Any LibreBooking setting as LB_KEY=value, e.g. LB_SCHEDULE_SHOW_WEEK_NUMBERS=true.
+network:
+  8080/tcp: Booking site

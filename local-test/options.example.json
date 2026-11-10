@@ -1,0 +1,21 @@
+{
+  "public_url": "http://localhost:8090",
+  "admin_email": "brock.cooper@sydney.edu.au",
+  "app_title": "SPL Equipment Booking",
+  "company_name": "Sydney Propulsion Lab",
+  "company_url": "",
+  "timezone": "Australia/Sydney",
+  "database_name": "librebooking",
+  "allow_self_registration": true,
+  "allowed_email_domains": "sydney.edu.au,uni.sydney.edu.au",
+  "public_schedule": true,
+  "public_booking_details": false,
+  "hide_user_details": true,
+  "public_days": 60,
+  "notify_admins_of_approvals": true,
+  "smtp_port": 587,
+  "smtp_security": "tls",
+  "embed_allowed_from": [],
+  "log_level": "none",
+  "extra_settings": []
+}
